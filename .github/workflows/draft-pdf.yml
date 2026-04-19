@@ -19,19 +19,19 @@ jobs:
         name: Paper draft
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
               with:
                   # Needed so LFS-tracked figures are real files on disk for Pandoc.
                   lfs: true
 
             - name: Build draft PDF
-              uses: openjournals/openjournals-draft-action@v1.0
+              uses: openjournals/openjournals-draft-action@85a18372e48f551d8af9ddb7a747de685fbbb01c # v1.0
               with:
                   journal: joss
                   paper-path: paper.md
 
             - name: Upload PDF artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
               with:
                   name: paper
                   path: paper.pdf
