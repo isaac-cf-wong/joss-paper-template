@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+title: 'A template repository for a JOSS paper'
+license: 'BSD-3-Clause'
+type: software
+authors:
+    - given-names: Isaac C. F.
+      family-names: Wong

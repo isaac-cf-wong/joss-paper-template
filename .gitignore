@@ -1,0 +1,19 @@
+# Local paper build outputs (Open Journals / Pandoc)
+paper.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Python / uv
+.venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

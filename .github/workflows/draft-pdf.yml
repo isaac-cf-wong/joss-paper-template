@@ -1,0 +1,43 @@
+name: Draft PDF
+
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - paper.md
+            - paper.bib
+            - figures/**
+            - .github/workflows/draft-pdf.yml
+    pull_request:
+        paths:
+            - paper.md
+            - paper.bib
+            - figures/**
+            - .github/workflows/draft-pdf.yml
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    paper:
+        runs-on: ubuntu-latest
+        name: Paper draft
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  # Needed so LFS-tracked figures are real files on disk for Pandoc.
+                  lfs: true
+
+            - name: Build draft PDF
+              uses: openjournals/openjournals-draft-action@v1.0
+              with:
+                  journal: joss
+                  paper-path: paper.md
+
+            - name: Upload PDF artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: paper
+                  path: paper.pdf
