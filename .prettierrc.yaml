@@ -5,3 +5,11 @@ semi: false
 singleQuote: true
 printWidth: 80
 proseWrap: always
+
+# JOSS / Pandoc: keep `![...](...){#id ...}` on one line; default proseWrap + 80
+# cols split attribute blocks across lines and break Open Journals builds.
+overrides:
+    - files: paper.md
+      options:
+          proseWrap: preserve
+          printWidth: 9999

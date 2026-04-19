@@ -12,6 +12,8 @@ paper.pdf
 
 # Python / uv
 .venv/
+dist/
+*.egg-info/
 
 # OS / editor
 .DS_Store

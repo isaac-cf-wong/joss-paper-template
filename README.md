@@ -5,9 +5,9 @@ A minimal repository layout for writing a
 Markdown with BibTeX references, following the
 [official JOSS paper format](https://joss.readthedocs.io/en/latest/paper.html).
 
-[![Draft PDF](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/draft-pdf.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/draft-pdf.yml)
-[![pre-commit](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/pre-commit.yml)
-[![License](https://img.shields.io/github/license/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME)](LICENSE)
+[![Draft PDF](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml/badge.svg)](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml)
+[![pre-commit](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/pre-commit.yml)
+[![License](https://img.shields.io/github/license/isaac-cf-wong/joss-paper-template)](LICENSE)
 [![JOSS paper docs](https://img.shields.io/badge/docs-JOSS%20paper-blue)](https://joss.readthedocs.io/en/latest/paper.html)
 
 ## Repository layout
@@ -22,10 +22,6 @@ Markdown with BibTeX references, following the
 | `.pre-commit-config.yaml`          | Local hook configuration (install with `uv run pre-commit install`).                        |
 | `pyproject.toml`                   | Declares the Python dev dependency group (pre-commit) for [uv](https://docs.astral.sh/uv/). |
 | `uv.lock`                          | Locked versions for reproducible installs (`uv sync` updates this file).                    |
-
-After you create the GitHub repository, replace `YOUR_GITHUB_USERNAME` and
-`YOUR_REPO_NAME` in the badge URLs at the top of this file so the status images
-resolve correctly.
 
 ## Writing the paper
 
@@ -54,7 +50,7 @@ Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then
 create the virtual environment and install **pre-commit** from `pyproject.toml`:
 
 ```bash
-uv sync --group dev
+uv sync --extra dev
 uv run pre-commit install
 uv run pre-commit run --all-files
 ```

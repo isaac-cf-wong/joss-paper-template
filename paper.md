@@ -52,8 +52,7 @@ Provide specific evidence of impact (citations, adoption, integrations,
 benchmarks, teaching use) or a credible, concrete case for near-term
 significance. Avoid vague claims without support [@example:article].
 
-![Example figure included from the repository.](figures/example.png){#fig:example
-width=20%}
+![Example figure included from the repository.](figures/example.png){#fig:example width=20%}
 
 You can reference figures with LaTeX-style cross-references supported by Open
 Journals, for example \autoref{fig:example}.
