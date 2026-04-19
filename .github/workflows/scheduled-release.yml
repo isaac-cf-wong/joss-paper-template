@@ -27,7 +27,20 @@ jobs:
     pre-commit:
         needs: check_new_commits
         if: ${{ needs.check_new_commits.outputs.has-changes }}
-        uses: ./.github/workflows/pre-commit.yml
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Install uv
+              uses: astral-sh/setup-uv@v6
+
+            - name: Install Python and sync dev dependencies
+              run: uv sync --frozen --extra dev
+
+            - name: Run pre-commit
+              run: uv run pre-commit run --all-files
 
     create_tag:
         needs: pre-commit
