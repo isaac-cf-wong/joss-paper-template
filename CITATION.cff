@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: 'joss-paper-template: A template repository for a JOSS paper'
+license: 'BSD-3-Clause'
+type: software
+authors:
+    - given-names: Isaac C. F.
+      family-names: Wong
+      affiliation: KU Leuven
+      orcid: 'https://orcid.org/0000-0003-2166-0027'
+keywords:
+    - github
+    - JOSS
+    - template
+    - manuscript
