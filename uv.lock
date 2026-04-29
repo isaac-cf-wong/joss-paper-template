@@ -72,7 +72,7 @@ release = [
 
 [package.metadata]
 requires-dist = [
-    { name = "git-cliff", marker = "extra == 'release'", specifier = ">=2.12.0" },
+    { name = "git-cliff", marker = "extra == 'release'", specifier = ">=2.13.1" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.6.0" },
 ]
 provides-extras = ["dev", "release"]
