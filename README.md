@@ -1,14 +1,14 @@
 # JOSS paper template
 
+[![Draft PDF](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml/badge.svg)](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/isaac-cf-wong/joss-paper-template/main.svg)](https://results.pre-commit.ci/latest/github/isaac-cf-wong/joss-paper-template/main)
+[![License](https://img.shields.io/github/license/isaac-cf-wong/joss-paper-template)](LICENSE)
+[![JOSS paper docs](https://img.shields.io/badge/docs-JOSS%20paper-blue)](https://joss.readthedocs.io/en/latest/paper.html)
+
 A minimal repository layout for writing a
 [Journal of Open Source Software (JOSS)](https://joss.theoj.org/) article in
 Markdown with BibTeX references, following the
 [official JOSS paper format](https://joss.readthedocs.io/en/latest/paper.html).
-
-[![Draft PDF](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml/badge.svg)](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/draft-pdf.yml)
-[![pre-commit](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/isaac-cf-wong/joss-paper-template/actions/workflows/pre-commit.yml)
-[![License](https://img.shields.io/github/license/isaac-cf-wong/joss-paper-template)](LICENSE)
-[![JOSS paper docs](https://img.shields.io/badge/docs-JOSS%20paper-blue)](https://joss.readthedocs.io/en/latest/paper.html)
 
 ## Repository layout
 
