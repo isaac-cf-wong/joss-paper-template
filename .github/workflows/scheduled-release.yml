@@ -26,7 +26,7 @@ jobs:
 
     pre-commit:
         needs: check_new_commits
-        if: ${{ needs.check_new_commits.outputs.has-changes }}
+        if: ${{ needs.check_new_commits.outputs.has-changes == 'true' }}
         uses: ./.github/workflows/pre-commit.yml
 
     create_tag:
@@ -46,7 +46,7 @@ jobs:
                   enable-cache: 'true'
 
             - name: Install dependencies
-              run: uv sync --extra release --frozen
+              run: uv sync --group release --frozen
 
             - name: Bump version and push tag
               id: tag_version
