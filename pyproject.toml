@@ -11,7 +11,7 @@ dependencies = []
 dynamic = ["version"]
 
 [dependency-groups]
-dev = ["prek>=0.4.0"]
+dev = ["prek>=0.4.1"]
 release = ["git-cliff>=2.13.1"]
 
 [tool.uv-dynamic-versioning]
