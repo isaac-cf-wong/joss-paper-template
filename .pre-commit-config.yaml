@@ -26,18 +26,18 @@ repos:
           - id: trailing-whitespace
 
     - repo: https://github.com/crate-ci/typos
-      rev: v1.46.2
+      rev: v1
       hooks:
           - id: typos
             args: []
 
     - repo: https://github.com/rbubley/mirrors-prettier
-      rev: v3.8.3
+      rev: v3.9.6
       hooks:
           - id: prettier
 
     - repo: https://github.com/DavidAnson/markdownlint-cli2
-      rev: v0.22.1
+      rev: v0.23.2
       hooks:
           - id: markdownlint-cli2
             args:
@@ -45,12 +45,12 @@ repos:
                 - .markdownlint.yaml
 
     - repo: https://github.com/astral-sh/uv-pre-commit
-      rev: 0.11.16
+      rev: 0.12.10
       hooks:
           # Update the uv lockfile
           - id: uv-lock
 
     - repo: https://github.com/gitleaks/gitleaks
-      rev: v8.30.1
+      rev: v8.30.0
       hooks:
           - id: gitleaks
