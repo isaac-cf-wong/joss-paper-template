@@ -14,28 +14,28 @@ jobs:
         outputs:
             has-changes: ${{ steps.check_commits.outputs.has-changes }}
         steps:
-            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+            - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
               with:
                   fetch-depth: 0
 
             - name: Check for new commits
               id: check_commits
-              uses: isaac-cf-wong/detect-git-changes-action@98bdd60bce9f8ef0220da336e3df1f8947542bb6 # v0.0.11
+              uses: isaac-cf-wong/detect-git-changes-action@10d1e3ac7c5ee0997d7b370e9929cacac9c87013 # v0.0.19
               with:
                   use-latest-tag: true
 
-    pre-commit:
+    draft-pdf:
         needs: check_new_commits
         if: ${{ needs.check_new_commits.outputs.has-changes == 'true' }}
-        uses: ./.github/workflows/pre-commit.yml
+        uses: ./.github/workflows/draft-pdf.yml
 
     create_tag:
-        needs: pre-commit
+        needs: draft-pdf
         runs-on: ubuntu-latest
         outputs:
             new_tag: ${{ steps.tag_version.outputs.new_tag }}
         steps:
-            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+            - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
               with:
                   fetch-depth: 0
 
@@ -51,11 +51,16 @@ jobs:
             - name: Bump version and push tag
               id: tag_version
               run: |
+                  set -euo pipefail
                   PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
                   if [ "$PREVIOUS_TAG" = "none" ]; then
                     NEW_TAG="v0.1.0"
                   else
-                    NEW_TAG=$(uv run --frozen git-cliff --bumped-version --config cliff.toml 2>/dev/null)
+                    # git-cliff proposes a bumped version; for a paper template we accept it
+                    # directly (no release_version.py gate like in the Python package template).
+                    PROPOSED_TAG=$(uv run --frozen git-cliff --bumped-version --config cliff.toml)
+                    NEW_TAG="$PROPOSED_TAG"
+                    echo "git-cliff proposed $NEW_TAG"
                   fi
                   if ! git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
                     echo "Creating annotated tag $NEW_TAG"
@@ -84,6 +89,5 @@ jobs:
         uses: ./.github/workflows/release.yml
         permissions:
             contents: write
-            id-token: write
         with:
             tag_name: ${{ needs.create_tag.outputs.new_tag }}
